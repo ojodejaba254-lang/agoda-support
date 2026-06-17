@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agoda Official Support - 24/7 Customer Help</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* ==================== AGODA OFFICIAL COLORS ==================== */
+        :root {
+            --agoda-blue: #003580;
+            --agoda-yellow: #ffc400;
+            --agoda-dark: #222;
+            --agoda-light: #f5f5f5;
+            --agoda-border: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            color: var(--agoda-dark);
+            line-height: 1.6;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .navbar {
+            background-color: var(--agoda-blue) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: white !important;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar-brand .badge {
+            background-color: var(--agoda-yellow);
+            color: var(--agoda-blue);
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: white !important;
+            margin-left: 1.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--agoda-yellow) !important;
+            transform: translateY(-2px);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--agoda-blue) 0%, #001f3f 100%);
+            padding: 100px 0;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 196, 0, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+
+        .hero-section .lead {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-section .btn {
+            padding: 14px 35px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            font-size: 1.05rem;
+        }
+
+        .hero-section .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-contact {
+            background-color: var(--agoda-yellow);
+            border-color: var(--agoda-yellow);
+            color: var(--agoda-blue);
+        }
+
+        .btn-contact:hover {
+            background-color: #ffb300;
+            border-color: #ffb300;
+            color: var(--agoda-blue);
+        }
+
+        /* ==================== BADGE SECTION ==================== */
+        .official-badge {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--agoda-yellow);
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--agoda-yellow);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* ==================== STATS SECTION ==================== */
+        .stats-section {
+            background: linear-gradient(135deg, var(--agoda-light) 0%, white 100%);
+            padding: 80px 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 4px solid var(--agoda-blue);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .stat-box h3 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--agoda-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            font-size: 1.1rem;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* ==================== FAQ SECTION ==================== */
+        .faq-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .faq-section h2 {
+            color: var(--agoda-blue);
+            margin-bottom: 3.5rem;
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .accordion-item {
+            border: 2px solid var(--agoda-border);
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .accordion-button {
+            background-color: white;
+            color: var(--agoda-blue);
+            font-weight: 700;
+            padding: 1.5rem;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .accordion-button:focus {
+            background-color: var(--agoda-light);
+            box-shadow: none;
+            border-color: var(--agoda-blue);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--agoda-light);
+            color: var(--agoda-blue);
+        }
+
+        .accordion-body {
+            background-color: white;
+            color: #555;
+            padding: 1.8rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--agoda-light) 0%, white 100%);
+        }
+
+        .contact-section h2 {
+            color: var(--agoda-blue);
+            margin-bottom: 3.5rem;
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--agoda-yellow);
+        }
+
+        .form-label {
+            color: var(--agoda-blue);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            font-size: 1.05rem;
+        }
+
+        .form-control,
+        .form-select {
+            border: 2px solid var(--agoda-border);
+            padding: 14px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--agoda-blue);
+            box-shadow: 0 0 0 0.3rem rgba(0, 53, 128, 0.15);
+        }
+
+        .contact-form .btn-submit {
+            background-color: var(--agoda-blue);
+            border-color: var(--agoda-blue);
+            color: white;
+            font-weight: 700;
+            padding: 14px 40px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .contact-form .btn-submit:hover {
+            background-color: #001f3f;
+            border-color: #001f3f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        #formMessage {
+            padding: 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            margin-top: 20px;
+            border-left: 4px solid;
+        }
+
+        #formMessage.success {
+            display: block;
+            background-color: #d4edda;
+            color: #155724;
+            border-left-color: #28a745;
+        }
+
+        #formMessage.error {
+            display: block;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left-color: #f5c6cb;
+        }
+
+        /* ==================== SUPPORT SECTION ==================== */
+        .support-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .support-section h2 {
+            color: var(--agoda-blue);
+            margin-bottom: 3.5rem;
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .support-box {
+            background: white;
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-top: 4px solid var(--agoda-yellow);
+            text-align: center;
+        }
+
+        .support-box:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .support-box i {
+            font-size: 3.5rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .support-box:hover i {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .support-box h4 {
+            color: var(--agoda-blue);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .support-box .lead {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .support-box .btn {
+            transition: all 0.3s ease;
+            font-weight: 700;
+            padding: 10px 25px;
+        }
+
+        .support-box .btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: var(--agoda-blue);
+            padding: 50px 0 20px;
+            text-align: center;
+            border-top: 4px solid var(--agoda-yellow);
+        }
+
+        footer p {
+            margin: 0;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        footer .social-links {
+            margin: 2rem 0;
+        }
+
+        footer a {
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--agoda-yellow);
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.9);
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+                min-height: auto;
+            }
+
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-section .lead {
+                font-size: 1.1rem;
+            }
+
+            .hero-section .btn {
+                padding: 12px 25px;
+                font-size: 0.95rem;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .stat-box {
+                padding: 25px;
+                margin-bottom: 20px;
+            }
+
+            .stat-box h3 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .support-box {
+                padding: 25px;
+                margin-bottom: 20px;
+            }
+
+            .faq-section h2,
+            .contact-section h2,
+            .support-section h2 {
+                font-size: 1.9rem;
+            }
+
+            .d-flex.gap-3 {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section .lead {
+                font-size: 1rem;
+            }
+
+            .stat-box h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .stat-box,
+        .support-box,
+        .accordion-item {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .official-badge {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#home">
+            <i class="fas fa-hotel"></i> AGODA <span class="badge">OFFICIAL</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section text-white">
+    <div class="container">
+        <div class="hero-content">
+            <div class="official-badge">
+                <i class="fas fa-check-circle"></i> OFFICIAL AGODA SUPPORT
+            </div>
+            <h1 class="display-4 fw-bold mb-4">24/7 Customer Support</h1>
+            <p class="lead mb-5">We're here to help you with all your booking questions and concerns. Get instant assistance from our official Agoda support team.</p>
+            <div class="d-flex gap-3 flex-wrap">
+                <a href="#contact" class="btn btn-contact btn-lg">
+                    <i class="fas fa-envelope"></i> Send Message
+                </a>
+                <a href="https://wa.me/447853169761?text=Hello%20Agoda%20Official%20Support" target="_blank" class="btn btn-success btn-lg">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="tel:+447853169761" class="btn btn-info btn-lg">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Stats -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <h3>24/7</h3>
+                    <p>Round the Clock Support</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <h3>100K+</h3>
+                    <p>Customers Helped</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <h3>2hr</h3>
+                    <p>Avg Response Time</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="stat-box">
+                    <h3>99%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="faq-section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                <i class="fas fa-edit me-2"></i> How do I modify my reservation?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                You can modify your reservation through your Agoda account. Go to "My Bookings," select the reservation you wish to modify, and follow the instructions. For major changes or if you face any issues, our support team is ready to assist you.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                <i class="fas fa-ban me-2"></i> What is your cancellation policy?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our cancellation policy varies by property and booking type. Most reservations allow free cancellation up to a certain date. Check your booking confirmation or property details for specific cancellation terms. Contact us if you need clarification.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                <i class="fas fa-credit-card me-2"></i> How long does payment processing take?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Payment processing typically takes 1-3 business days. You'll receive a confirmation email with your booking details and receipt once your payment is successfully processed.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                <i class="fas fa-key me-2"></i> How do I reset my password?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Click "Forgot Password" on the login page and follow the instructions sent to your registered email address. You'll receive a secure link to reset your password within minutes.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                <i class="fas fa-undo me-2"></i> Can I get a refund?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Refunds depend on your property's cancellation policy and your booking terms. Contact our support team with your booking reference number for detailed information about your refund eligibility.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2>Contact Our Support Team</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- NETLIFY FORMS FOR CLOUDFLARE PAGES -->
+                <form name="agoda-official-support" method="POST" netlify class="contact-form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+44 7853 169761">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="booking-ref" class="form-label">Booking Reference (if applicable)</label>
+                        <input type="text" class="form-control" id="booking-ref" name="booking-reference" placeholder="e.g., AGD1234567">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="Booking">Booking Issue</option>
+                            <option value="Payment">Payment Issue</option>
+                            <option value="Cancellation">Cancellation/Refund</option>
+                            <option value="Technical">Technical Issue</option>
+                            <option value="Account">Account Issues</option>
+                            <option value="General">General Inquiry</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Brief description of your issue" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                        <textarea class="form-control" id="message" name="message" rows="6" placeholder="Please describe your issue in detail..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit btn-lg w-100">
+                        <i class="fas fa-paper-plane"></i> Submit Support Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support Methods Section -->
+<section id="support" class="support-section">
+    <div class="container">
+        <h2>How to Reach Us</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="support-box">
+                    <i class="fas fa-envelope text-primary"></i>
+                    <h4>Email Support</h4>
+                    <p class="lead">agodahelpcare@outlook.com</p>
+                    <a href="mailto:agodahelpcare@outlook.com" class="btn btn-outline-primary">Send Email</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="support-box">
+                    <i class="fab fa-whatsapp text-success"></i>
+                    <h4>WhatsApp Chat</h4>
+                    <p class="lead">+44 7853 169761</p>
+                    <a href="https://wa.me/447853169761?text=Hello%20Agoda%20Official%20Support" target="_blank" class="btn btn-outline-success">Chat Now</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="support-box">
+                    <i class="fas fa-phone text-info"></i>
+                    <h4>Phone Support</h4>
+                    <p class="lead">+44 7853 169761</p>
+                    <a href="tel:+447853169761" class="btn btn-outline-info">Call Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-white">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <h5 class="mb-3">
+                    <i class="fas fa-hotel"></i> AGODA OFFICIAL SUPPORT
+                </h5>
+                <p class="mb-0">Supporting Agoda customers worldwide through official Facebook community groups</p>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="mailto:agodahelpcare@outlook.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/447853169761" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+447853169761" title="Call"><i class="fas fa-phone"></i></a>
+        </div>
+
+        <div class="footer-text">
+            <p>&copy; 2024 Agoda Customer Support. Official Support Channel.</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Available 24/7 | Average Response Time: 2 Hours</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// ==================== SMOOTH SCROLLING ==================== 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// ==================== NAVBAR HIGHLIGHTING ==================== 
+window.addEventListener('scroll', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    let current = '';
+
+    const sections = ['home', 'faq', 'contact', 'support'];
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 200) {
+                current = sectionId;
+            }
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// ==================== ANIMATION ON SCROLL ==================== 
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.stat-box, .support-box, .accordion-item').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+});
+
+// ==================== MOBILE MENU CLOSE ==================== 
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        const navbar = document.querySelector('.navbar-collapse');
+        const toggler = document.querySelector('.navbar-toggler');
+        if (navbar.classList.contains('show')) {
+            toggler.click();
+        }
+    });
+});
+
+console.log('✓ Agoda Official Support Website Loaded');
+</script>
+
+</body>
+</html>
