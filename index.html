@@ -1,890 +1,959 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agoda Official Support - 24/7 Customer Help</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <style>
-        /* ==================== AGODA OFFICIAL COLORS ==================== */
-        :root {
-            --agoda-blue: #003580;
-            --agoda-yellow: #ffc400;
-            --agoda-dark: #222;
-            --agoda-light: #f5f5f5;
-            --agoda-border: #ddd;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            color: var(--agoda-dark);
-            line-height: 1.6;
-        }
-
-        /* ==================== NAVIGATION ==================== */
-        .navbar {
-            background-color: var(--agoda-blue) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-            padding: 1rem 0;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            color: white !important;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .navbar-brand img {
-            height: 40px;
-            width: auto;
-        }
-
-        .navbar-brand .badge {
-            background-color: var(--agoda-yellow);
-            color: var(--agoda-blue);
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: 700;
-        }
-
-        .nav-link {
-            color: white !important;
-            margin-left: 1.5rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            color: var(--agoda-yellow) !important;
-            transform: translateY(-2px);
-        }
-
-        /* ==================== HERO SECTION ==================== */
-        .hero-section {
-            background: linear-gradient(135deg, var(--agoda-blue) 0%, #001f3f 100%);
-            padding: 100px 0;
-            min-height: 550px;
-            display: flex;
-            align-items: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 196, 0, 0.05);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-section h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            letter-spacing: -1px;
-        }
-
-        .hero-section .lead {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-
-        .hero-section .btn {
-            padding: 14px 35px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border-radius: 6px;
-            font-size: 1.05rem;
-        }
-
-        .hero-section .btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .btn-contact {
-            background-color: var(--agoda-yellow);
-            border-color: var(--agoda-yellow);
-            color: var(--agoda-blue);
-        }
-
-        .btn-contact:hover {
-            background-color: #ffb300;
-            border-color: #ffb300;
-            color: var(--agoda-blue);
-        }
-
-        /* ==================== BADGE SECTION ==================== */
-        .official-badge {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid var(--agoda-yellow);
-            padding: 15px 20px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--agoda-yellow);
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* ==================== STATS SECTION ==================== */
-        .stats-section {
-            background: linear-gradient(135deg, var(--agoda-light) 0%, white 100%);
-            padding: 80px 0;
-        }
-
-        .stat-box {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            text-align: center;
-            border-top: 4px solid var(--agoda-blue);
-        }
-
-        .stat-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-
-        .stat-box h3 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--agoda-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-box p {
-            font-size: 1.1rem;
-            color: #666;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        /* ==================== FAQ SECTION ==================== */
-        .faq-section {
-            padding: 100px 0;
-            background-color: white;
-        }
-
-        .faq-section h2 {
-            color: var(--agoda-blue);
-            margin-bottom: 3.5rem;
-            font-size: 2.8rem;
-            font-weight: 900;
-            text-align: center;
-        }
-
-        .accordion-item {
-            border: 2px solid var(--agoda-border);
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .accordion-item:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .accordion-button {
-            background-color: white;
-            color: var(--agoda-blue);
-            font-weight: 700;
-            padding: 1.5rem;
-            border: none;
-            font-size: 1.1rem;
-        }
-
-        .accordion-button:focus {
-            background-color: var(--agoda-light);
-            box-shadow: none;
-            border-color: var(--agoda-blue);
-        }
-
-        .accordion-button:not(.collapsed) {
-            background-color: var(--agoda-light);
-            color: var(--agoda-blue);
-        }
-
-        .accordion-body {
-            background-color: white;
-            color: #555;
-            padding: 1.8rem;
-            line-height: 1.9;
-            font-size: 1.05rem;
-        }
-
-        /* ==================== CONTACT SECTION ==================== */
-        .contact-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--agoda-light) 0%, white 100%);
-        }
-
-        .contact-section h2 {
-            color: var(--agoda-blue);
-            margin-bottom: 3.5rem;
-            font-size: 2.8rem;
-            font-weight: 900;
-            text-align: center;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 45px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-top: 4px solid var(--agoda-yellow);
-        }
-
-        .form-label {
-            color: var(--agoda-blue);
-            font-weight: 700;
-            margin-bottom: 0.7rem;
-            font-size: 1.05rem;
-        }
-
-        .form-control,
-        .form-select {
-            border: 2px solid var(--agoda-border);
-            padding: 14px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-size: 1.05rem;
-        }
-
-        .form-control:focus,
-        .form-select:focus {
-            border-color: var(--agoda-blue);
-            box-shadow: 0 0 0 0.3rem rgba(0, 53, 128, 0.15);
-        }
-
-        .contact-form .btn-submit {
-            background-color: var(--agoda-blue);
-            border-color: var(--agoda-blue);
-            color: white;
-            font-weight: 700;
-            padding: 14px 40px;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-
-        .contact-form .btn-submit:hover {
-            background-color: #001f3f;
-            border-color: #001f3f;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        #formMessage {
-            padding: 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            display: none;
-            margin-top: 20px;
-            border-left: 4px solid;
-        }
-
-        #formMessage.success {
-            display: block;
-            background-color: #d4edda;
-            color: #155724;
-            border-left-color: #28a745;
-        }
-
-        #formMessage.error {
-            display: block;
-            background-color: #f8d7da;
-            color: #721c24;
-            border-left-color: #f5c6cb;
-        }
-
-        /* ==================== SUPPORT SECTION ==================== */
-        .support-section {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .support-section h2 {
-            color: var(--agoda-blue);
-            margin-bottom: 3.5rem;
-            font-size: 2.8rem;
-            font-weight: 900;
-            text-align: center;
-        }
-
-        .support-box {
-            background: white;
-            padding: 45px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            height: 100%;
-            border-top: 4px solid var(--agoda-yellow);
-            text-align: center;
-        }
-
-        .support-box:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-
-        .support-box i {
-            font-size: 3.5rem;
-            transition: all 0.3s ease;
-            margin-bottom: 1.5rem;
-        }
-
-        .support-box:hover i {
-            transform: scale(1.15) rotate(5deg);
-        }
-
-        .support-box h4 {
-            color: var(--agoda-blue);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .support-box .lead {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .support-box .btn {
-            transition: all 0.3s ease;
-            font-weight: 700;
-            padding: 10px 25px;
-        }
-
-        .support-box .btn:hover {
-            transform: scale(1.08);
-        }
-
-        /* ==================== FOOTER ==================== */
-        footer {
-            background-color: var(--agoda-blue);
-            padding: 50px 0 20px;
-            text-align: center;
-            border-top: 4px solid var(--agoda-yellow);
-        }
-
-        footer p {
-            margin: 0;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        footer .social-links {
-            margin: 2rem 0;
-        }
-
-        footer a {
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin: 0 15px;
-            color: white;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: var(--agoda-yellow);
-            transform: scale(1.3) rotate(10deg);
-        }
-
-        .footer-text {
-            color: rgba(255,255,255,0.9);
-            margin-top: 2rem;
-            font-size: 0.95rem;
-        }
-
-        /* ==================== RESPONSIVE ==================== */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 60px 0;
-                min-height: auto;
-            }
-
-            .hero-section h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-section .lead {
-                font-size: 1.1rem;
-            }
-
-            .hero-section .btn {
-                padding: 12px 25px;
-                font-size: 0.95rem;
-                width: 100%;
-                margin-bottom: 10px;
-            }
-
-            .stat-box {
-                padding: 25px;
-                margin-bottom: 20px;
-            }
-
-            .stat-box h3 {
-                font-size: 2rem;
-            }
-
-            .contact-form {
-                padding: 25px;
-            }
-
-            .support-box {
-                padding: 25px;
-                margin-bottom: 20px;
-            }
-
-            .faq-section h2,
-            .contact-section h2,
-            .support-section h2 {
-                font-size: 1.9rem;
-            }
-
-            .d-flex.gap-3 {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar-brand {
-                font-size: 1.3rem;
-            }
-
-            .hero-section h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-section .lead {
-                font-size: 1rem;
-            }
-
-            .stat-box h3 {
-                font-size: 1.5rem;
-            }
-
-            .contact-form {
-                padding: 20px;
-            }
-        }
-
-        /* ==================== ANIMATIONS ==================== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        .stat-box,
-        .support-box,
-        .accordion-item {
-            animation: fadeInUp 0.6s ease;
-        }
-
-        .official-badge {
-            animation: pulse 2s ease-in-out infinite;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d2b45">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Find clear Agoda booking support for reservations, cancellations, refunds, payments, check-in and account access. Get step-by-step help and safe links to official channels.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Agoda Support Guide">
+  <link rel="canonical" href="/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agoda Support Guide">
+  <meta property="og:title" content="Agoda Booking Support | Clear answers, safer next steps">
+  <meta property="og:description" content="Step-by-step guidance for Agoda reservations, cancellations, refunds, payments and account access.">
+  <meta property="og:url" content="/">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Agoda Booking Support | Clear answers, safer next steps">
+  <meta name="twitter:description" content="Step-by-step guidance for Agoda reservations, cancellations, refunds, payments and account access.">
+
+  <title>Agoda Booking Support | Reservations, Cancellations &amp; Refunds</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Agoda Support Guide",
+    "url": "/",
+    "description": "An independent guide to finding help with Agoda bookings, cancellations, refunds, payments and account access.",
+    "inLanguage": "en",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "en",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where can I find my Agoda booking confirmation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Look for the confirmation email sent to the address used during booking, or open your Trips or Bookings area in the Agoda app or website. Check your spam or promotions folder if it is missing." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change the dates or guest name on my booking?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open the booking in Agoda and review the available change options. What can be changed depends on the property, rate and booking conditions. Contact official Agoda support from the app or website if no option is shown." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I cancel an Agoda booking?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open the booking details and select the cancellation option if it is available. Review the cancellation deadline, fee and refund amount before confirming. The terms in your confirmation are the terms that apply." }
+      },
+      {
+        "@type": "Question",
+        "name": "When will my Agoda refund arrive?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Refund timing depends on the booking terms, payment method and bank. Check the cancellation confirmation for the expected amount, then contact official Agoda support or your payment provider if the expected window has passed." }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if I cannot sign in to Agoda?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use the password reset option on Agoda's official website or app and follow the email instructions. Never share a password, one-time code or verification link with anyone." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink: #102c43;
+      --ink-soft: #496276;
+      --ink-muted: #6f8392;
+      --navy: #0d2b45;
+      --navy-2: #173f5f;
+      --teal: #0c756d;
+      --teal-dark: #07594f;
+      --mint: #dcf3ec;
+      --coral: #ff795f;
+      --coral-dark: #dc5b47;
+      --yellow: #f7c948;
+      --cream: #fbfaf6;
+      --paper: #ffffff;
+      --line: #dfe8e7;
+      --line-dark: #bfd1d2;
+      --shadow-sm: 0 8px 24px rgba(16, 44, 67, .07);
+      --shadow-lg: 0 24px 60px rgba(16, 44, 67, .14);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img, svg { display: block; }
+    button, input, select, textarea { font: inherit; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 3px solid rgba(247, 201, 72, .95);
+      outline-offset: 3px;
+    }
+    .icon { width: 20px; height: 20px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+    .icon-fill { fill: currentColor; stroke: none; }
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    .container { width: min(calc(100% - 48px), var(--container)); margin: 0 auto; }
+    .section { padding: 104px 0; }
+    .section-heading { max-width: 700px; margin-bottom: 48px; }
+    .section-heading.centered { margin-right: auto; margin-left: auto; text-align: center; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 16px;
+      color: var(--teal);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 3px; border-radius: 3px; background: var(--coral); }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1, h2, h3, h4 { letter-spacing: -.045em; line-height: 1.08; }
+    h1 { margin-bottom: 24px; font-size: clamp(3.25rem, 6vw, 5.9rem); font-weight: 850; }
+    h2 { margin-bottom: 16px; font-size: clamp(2.25rem, 4vw, 3.7rem); font-weight: 800; }
+    h3 { margin-bottom: 12px; font-size: 1.35rem; font-weight: 800; }
+    .section-heading > p:not(.eyebrow) { margin-bottom: 0; color: var(--ink-soft); font-size: 1.13rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 19px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: var(--teal);
+      color: #fff;
+      font-size: .95rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease, color .2s ease;
+    }
+    .button:hover { background: var(--teal-dark); box-shadow: 0 10px 22px rgba(12, 117, 109, .2); transform: translateY(-2px); }
+    .button.button-light { background: #fff; color: var(--navy); }
+    .button.button-light:hover { background: var(--mint); box-shadow: none; }
+    .button.button-outline { border-color: var(--line-dark); background: transparent; color: var(--ink); }
+    .button.button-outline:hover { border-color: var(--teal); background: var(--mint); box-shadow: none; }
+    .button.button-coral { background: var(--coral); color: var(--navy); }
+    .button.button-coral:hover { background: var(--coral-dark); color: #fff; }
+
+    /* Icon sprite */
+    .icon-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+    /* Header */
+    .announcement {
+      padding: 9px 24px;
+      background: var(--navy);
+      color: rgba(255,255,255,.88);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-align: center;
+    }
+    .announcement a { color: var(--yellow); text-underline-offset: 3px; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(16, 44, 67, .08);
+      background: rgba(251, 250, 246, .92);
+      backdrop-filter: blur(18px);
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 30px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--navy); text-decoration: none; }
+    .brand-mark { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 12px 12px 12px 3px; background: var(--coral); color: var(--navy); transform: rotate(-4deg); }
+    .brand-mark .icon { width: 23px; height: 23px; stroke-width: 2.2; transform: rotate(4deg); }
+    .brand-name { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+    .brand-name strong { font-size: 1.03rem; letter-spacing: -.035em; }
+    .brand-name span { color: var(--ink-muted); font-size: .66rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; gap: 32px; margin-left: auto; }
+    .main-nav a { position: relative; padding: 26px 0; color: var(--ink-soft); font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .main-nav a::after { position: absolute; right: 0; bottom: 17px; left: 0; height: 2px; border-radius: 2px; background: var(--coral); content: ""; transform: scaleX(0); transform-origin: right; transition: transform .2s ease; }
+    .main-nav a:hover, .main-nav a[aria-current="page"] { color: var(--navy); }
+    .main-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .header-action { white-space: nowrap; }
+    .menu-toggle { display: none; width: 44px; height: 44px; padding: 9px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--navy); cursor: pointer; }
+    .menu-toggle .close-icon { display: none; }
+    .menu-toggle.is-open .menu-icon { display: none; }
+    .menu-toggle.is-open .close-icon { display: block; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 96px 0 100px;
+      background: var(--cream);
+    }
+    .hero::before, .hero::after { position: absolute; z-index: -1; border-radius: 50%; content: ""; pointer-events: none; }
+    .hero::before { top: -280px; right: -180px; width: 650px; height: 650px; background: rgba(220, 243, 236, .7); }
+    .hero::after { bottom: -420px; left: -260px; width: 700px; height: 700px; border: 1px solid rgba(12, 117, 109, .13); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(400px, .97fr); align-items: center; gap: clamp(50px, 8vw, 120px); }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero h1 { max-width: 650px; color: var(--navy); }
+    .hero h1 em { color: var(--coral); font-family: Georgia, "Times New Roman", serif; font-weight: 500; }
+    .hero-lede { max-width: 580px; margin-bottom: 30px; color: var(--ink-soft); font-size: 1.2rem; line-height: 1.7; }
+    .search-box { max-width: 610px; padding: 8px; border: 1px solid rgba(16, 44, 67, .12); border-radius: 15px; background: #fff; box-shadow: var(--shadow-lg); }
+    .search-row { display: flex; align-items: center; gap: 11px; }
+    .search-row .search-icon { width: 22px; height: 22px; margin-left: 11px; color: var(--teal); }
+    .search-row input { min-width: 0; flex: 1; padding: 11px 0; border: 0; outline: none; background: transparent; color: var(--ink); font-size: 1rem; }
+    .search-row input::placeholder { color: #8b9aa5; }
+    .search-row .button { min-height: 46px; padding-right: 22px; padding-left: 22px; }
+    .search-hint { margin: 9px 4px 2px; color: var(--ink-muted); font-size: .76rem; }
+    .search-status { min-height: 0; margin: 4px 4px 0; color: var(--teal-dark); font-size: .82rem; font-weight: 700; }
+    .search-status:empty { display: none; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 22px; color: var(--ink-muted); font-size: .87rem; font-weight: 700; }
+    .hero-links a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); text-underline-offset: 4px; }
+    .hero-links a:hover { color: var(--teal); }
+    .hero-links .icon { width: 15px; height: 15px; }
+
+    /* Hero visual: CSS illustration, intentionally decorative */
+    .hero-art { position: relative; min-height: 500px; }
+    .hero-art::before { position: absolute; top: 4%; right: 6%; width: 85%; height: 85%; border: 1px solid rgba(12, 117, 109, .2); border-radius: 48% 52% 44% 56%; content: ""; transform: rotate(18deg); }
+    .hero-art::after { position: absolute; top: 17%; right: 4%; width: 75%; height: 72%; border: 1px dashed rgba(255, 121, 95, .32); border-radius: 50%; content: ""; transform: rotate(-30deg); }
+    .art-dot { position: absolute; top: 9%; right: 1%; width: 16px; height: 16px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 9px rgba(255, 121, 95, .16); }
+    .art-dot-two { position: absolute; bottom: 14%; left: 3%; width: 12px; height: 12px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 8px rgba(247, 201, 72, .18); }
+    .trip-card { position: absolute; top: 13%; left: 8%; z-index: 2; width: min(100% - 40px, 420px); padding: 28px; border: 1px solid rgba(16, 44, 67, .08); border-radius: 24px; background: #fff; box-shadow: 0 28px 70px rgba(16, 44, 67, .18); transform: rotate(-3deg); }
+    .trip-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .trip-card-label { color: var(--teal); font-size: .69rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .trip-card-status { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border-radius: 99px; background: var(--mint); color: var(--teal-dark); font-size: .66rem; font-weight: 800; }
+    .trip-card-status::before { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); content: ""; }
+    .trip-card h2 { margin-bottom: 8px; font-size: 2rem; }
+    .trip-card-copy { margin-bottom: 24px; color: var(--ink-soft); font-size: .9rem; }
+    .progress { display: flex; align-items: center; margin: 20px 0 24px; }
+    .progress-step { position: relative; display: flex; flex: 1; align-items: center; gap: 7px; color: var(--ink-muted); font-size: .68rem; font-weight: 750; }
+    .progress-step:not(:last-child)::after { height: 2px; flex: 1; margin: 0 5px; background: var(--line); content: ""; }
+    .progress-step.done { color: var(--teal); }
+    .progress-step.done:not(:last-child)::after { background: var(--teal); }
+    .step-dot { display: grid; width: 22px; height: 22px; flex: 0 0 22px; place-items: center; border: 2px solid var(--line-dark); border-radius: 50%; background: #fff; font-size: .65rem; }
+    .progress-step.done .step-dot { border-color: var(--teal); background: var(--teal); color: #fff; }
+    .card-note { display: flex; align-items: flex-start; gap: 10px; padding: 13px; border-radius: 12px; background: var(--cream); color: var(--ink-soft); font-size: .77rem; line-height: 1.45; }
+    .card-note .icon { width: 18px; height: 18px; color: var(--coral); }
+    .floating-ticket { position: absolute; right: 0; bottom: 13%; z-index: 3; display: flex; align-items: center; gap: 13px; width: min(235px, 52%); padding: 17px; border-radius: 17px; background: var(--navy); color: #fff; box-shadow: 0 22px 45px rgba(13, 43, 69, .23); transform: rotate(5deg); }
+    .ticket-icon { display: grid; width: 36px; height: 36px; flex: 0 0 36px; place-items: center; border-radius: 10px; background: var(--yellow); color: var(--navy); }
+    .ticket-icon .icon { width: 18px; height: 18px; }
+    .floating-ticket strong { display: block; margin-bottom: 2px; font-size: .86rem; }
+    .floating-ticket span { display: block; color: rgba(255,255,255,.66); font-size: .71rem; line-height: 1.3; }
+    .hero-stamp { position: absolute; right: 11%; bottom: 6%; display: grid; width: 91px; height: 91px; place-items: center; border: 1px solid rgba(12, 117, 109, .35); border-radius: 50%; color: var(--teal); font-size: .63rem; font-weight: 850; letter-spacing: .1em; line-height: 1.45; text-align: center; text-transform: uppercase; transform: rotate(12deg); }
+    .hero-stamp::before { position: absolute; inset: 7px; border: 1px dashed var(--teal); border-radius: 50%; content: ""; }
+
+    /* Quick benefits */
+    .benefits { padding: 0 0 103px; }
+    .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); border-radius: 18px; background: var(--line); overflow: hidden; }
+    .benefit { display: flex; align-items: flex-start; gap: 15px; padding: 27px 30px; background: rgba(255,255,255,.72); }
+    .benefit-icon { display: grid; width: 37px; height: 37px; flex: 0 0 37px; place-items: center; border-radius: 10px; background: var(--mint); color: var(--teal); }
+    .benefit-icon .icon { width: 19px; height: 19px; }
+    .benefit strong { display: block; margin-bottom: 3px; color: var(--navy); font-size: .95rem; }
+    .benefit span { display: block; color: var(--ink-muted); font-size: .8rem; line-height: 1.45; }
+
+    /* Topics */
+    .topics-section { background: #fff; }
+    .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .topic-card { position: relative; display: flex; min-height: 225px; flex-direction: column; align-items: flex-start; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius-md); background: #fff; text-decoration: none; overflow: hidden; transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease; }
+    .topic-card::after { position: absolute; right: -25px; bottom: -55px; width: 150px; height: 150px; border-radius: 50%; background: var(--cream); content: ""; transition: transform .25s ease; }
+    .topic-card:hover { border-color: rgba(12, 117, 109, .35); box-shadow: var(--shadow-sm); transform: translateY(-5px); }
+    .topic-card:hover::after { transform: scale(1.35); }
+    .topic-icon { position: relative; z-index: 1; display: grid; width: 45px; height: 45px; place-items: center; margin-bottom: 24px; border-radius: 13px; background: var(--mint); color: var(--teal); }
+    .topic-icon.coral { background: #fff0eb; color: var(--coral-dark); }
+    .topic-icon.yellow { background: #fff7d9; color: #967000; }
+    .topic-icon.navy { background: #e9f0f6; color: var(--navy-2); }
+    .topic-icon .icon { width: 22px; height: 22px; }
+    .topic-card h3, .topic-card p, .topic-link { position: relative; z-index: 1; }
+    .topic-card h3 { margin-bottom: 8px; font-size: 1.16rem; }
+    .topic-card p { max-width: 245px; margin-bottom: 20px; color: var(--ink-muted); font-size: .86rem; line-height: 1.5; }
+    .topic-link { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; color: var(--teal); font-size: .8rem; font-weight: 800; }
+    .topic-link .icon { width: 15px; height: 15px; transition: transform .2s ease; }
+    .topic-card:hover .topic-link .icon { transform: translateX(4px); }
+    .no-results { display: none; grid-column: 1 / -1; padding: 30px; border: 1px dashed var(--line-dark); border-radius: 14px; color: var(--ink-soft); text-align: center; }
+    .no-results.is-visible { display: block; }
+
+    /* How it works */
+    .how-section { background: var(--navy); color: #fff; }
+    .how-section .eyebrow { color: var(--yellow); }
+    .how-section .eyebrow::before { background: var(--coral); }
+    .how-section .section-heading > p:not(.eyebrow) { color: rgba(255,255,255,.68); }
+    .how-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(40px, 9vw, 120px); align-items: start; }
+    .how-section h2 { color: #fff; }
+    .steps { position: relative; display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .steps::before { position: absolute; top: 30px; bottom: 30px; left: 20px; width: 1px; background: rgba(255,255,255,.2); content: ""; }
+    .step { position: relative; display: grid; grid-template-columns: 42px 1fr; gap: 22px; padding-bottom: 35px; }
+    .step:last-child { padding-bottom: 0; }
+    .step-number { position: relative; z-index: 1; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(255,255,255,.24); border-radius: 50%; background: var(--navy); color: var(--yellow); font-size: .84rem; font-weight: 850; }
+    .step h3 { margin: 4px 0 8px; color: #fff; font-size: 1.12rem; letter-spacing: -.02em; }
+    .step p { max-width: 540px; margin: 0; color: rgba(255,255,255,.64); font-size: .9rem; }
+    .how-note { margin-top: 45px; padding: 20px; border: 1px solid rgba(255,255,255,.14); border-radius: 15px; background: rgba(255,255,255,.06); color: rgba(255,255,255,.78); font-size: .82rem; }
+    .how-note strong { display: block; margin-bottom: 4px; color: var(--yellow); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+
+    /* Safety section */
+    .safety-section { padding: 82px 0; background: var(--mint); }
+    .safety-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 35px; padding: 38px 44px; border: 1px solid rgba(12,117,109,.18); border-radius: 24px; background: rgba(255,255,255,.57); }
+    .safety-card .eyebrow { margin-bottom: 10px; }
+    .safety-card h2 { margin-bottom: 9px; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .safety-card p { max-width: 700px; margin: 0; color: var(--ink-soft); font-size: .93rem; }
+    .safety-card p strong { color: var(--navy); }
+
+    /* FAQ */
+    .faq-section { background: var(--cream); }
+    .faq-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 80px; align-items: start; }
+    .faq-sidebar { position: sticky; top: 110px; }
+    .faq-sidebar p { margin-bottom: 18px; color: var(--ink-muted); font-size: .87rem; }
+    .filter-list { display: flex; flex-direction: column; gap: 4px; }
+    .filter-button { display: flex; align-items: center; justify-content: space-between; padding: 11px 13px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-soft); font-size: .88rem; font-weight: 750; text-align: left; cursor: pointer; }
+    .filter-button:hover { background: rgba(220,243,236,.55); color: var(--teal-dark); }
+    .filter-button[aria-pressed="true"] { background: var(--navy); color: #fff; }
+    .filter-count { opacity: .62; font-size: .72rem; }
+    .faq-list { display: grid; gap: 11px; }
+    .faq-item { border: 1px solid var(--line); border-radius: 14px; background: #fff; transition: border-color .2s ease, box-shadow .2s ease; }
+    .faq-item[open] { border-color: rgba(12,117,109,.35); box-shadow: var(--shadow-sm); }
+    .faq-item[hidden] { display: none; }
+    .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 22px 24px; color: var(--navy); font-size: 1rem; font-weight: 800; cursor: pointer; list-style: none; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { display: grid; width: 25px; height: 25px; flex: 0 0 25px; place-items: center; border: 1px solid var(--line-dark); border-radius: 50%; color: var(--teal); content: "+"; font-size: 1.1rem; font-weight: 500; line-height: 1; }
+    .faq-item[open] summary::after { background: var(--teal); color: #fff; content: "−"; }
+    .faq-answer { padding: 0 24px 23px; color: var(--ink-soft); font-size: .91rem; }
+    .faq-answer p { margin-bottom: 10px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+    .faq-answer a { color: var(--teal-dark); font-weight: 750; text-underline-offset: 3px; }
+    .faq-empty { display: none; padding: 35px; border: 1px dashed var(--line-dark); border-radius: 14px; color: var(--ink-soft); text-align: center; }
+    .faq-empty.is-visible { display: block; }
+
+    /* Contact */
+    .contact-section { background: #fff; }
+    .contact-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(45px, 8vw, 110px); align-items: start; }
+    .contact-copy h2 { margin-bottom: 17px; }
+    .contact-copy > p { max-width: 430px; color: var(--ink-soft); font-size: 1.02rem; }
+    .contact-list { display: grid; gap: 16px; margin: 31px 0 0; padding: 0; list-style: none; }
+    .contact-list li { display: flex; align-items: flex-start; gap: 12px; color: var(--ink-soft); font-size: .88rem; }
+    .contact-list .icon { width: 19px; height: 19px; margin-top: 2px; color: var(--teal); }
+    .contact-list strong { display: block; margin-bottom: 2px; color: var(--navy); font-size: .89rem; }
+    .contact-list span { display: block; line-height: 1.45; }
+    .form-card { padding: 34px; border: 1px solid var(--line); border-radius: 22px; background: var(--cream); box-shadow: 0 18px 44px rgba(16,44,67,.07); }
+    .form-card h3 { margin-bottom: 6px; font-size: 1.4rem; }
+    .form-intro { margin-bottom: 23px; color: var(--ink-muted); font-size: .84rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .form-field { display: flex; flex-direction: column; gap: 7px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { color: var(--navy); font-size: .8rem; font-weight: 800; }
+    .form-field label span { color: var(--coral-dark); }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 12px 13px; border: 1px solid var(--line-dark); border-radius: 9px; outline: none; background: #fff; color: var(--ink); font-size: .88rem; transition: border .2s ease, box-shadow .2s ease; }
+    .form-field textarea { min-height: 118px; resize: vertical; }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: #9aa8b1; }
+    .form-field input:hover, .form-field select:hover, .form-field textarea:hover { border-color: #99b8b8; }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(12,117,109,.12); }
+    .form-consent { display: flex; align-items: flex-start; gap: 9px; margin: 18px 0; color: var(--ink-muted); font-size: .74rem; line-height: 1.45; }
+    .form-consent input { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; accent-color: var(--teal); }
+    .form-consent a { color: var(--teal-dark); text-underline-offset: 2px; }
+    .form-card .button { width: 100%; }
+    .form-note { margin: 13px 0 0; color: var(--ink-muted); font-size: .72rem; line-height: 1.5; text-align: center; }
+    .honeypot { position: absolute !important; left: -5000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+
+    /* Footer */
+    footer { padding: 70px 0 26px; background: var(--navy); color: #fff; }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr .75fr .75fr 1fr; gap: 48px; padding-bottom: 60px; }
+    footer .brand { color: #fff; }
+    footer .brand-name span { color: rgba(255,255,255,.55); }
+    footer .brand-mark { background: var(--yellow); }
+    .footer-intro { max-width: 285px; margin: 20px 0 0; color: rgba(255,255,255,.61); font-size: .84rem; line-height: 1.65; }
+    .footer-heading { margin: 5px 0 17px; color: var(--yellow); font-size: .75rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-links { display: grid; gap: 10px; padding: 0; list-style: none; }
+    .footer-links a { color: rgba(255,255,255,.72); font-size: .84rem; text-decoration: none; }
+    .footer-links a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    .footer-disclaimer { padding: 20px 0; border-top: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.58); font-size: .74rem; line-height: 1.6; }
+    .footer-disclaimer strong { color: rgba(255,255,255,.85); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 22px; color: rgba(255,255,255,.42); font-size: .72rem; }
+    .footer-bottom p { margin: 0; }
+    .footer-bottom a { color: rgba(255,255,255,.62); }
+
+    /* Motion */
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal, .js .reveal.is-visible { opacity: 1; transform: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 35px; }
+      .hero-copy { max-width: 760px; }
+      .hero-art { width: min(100%, 580px); min-height: 470px; margin: 0 auto; }
+      .benefit-grid { grid-template-columns: 1fr; }
+      .benefit { padding: 22px 27px; }
+      .topics-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-layout { grid-template-columns: 1fr; gap: 20px; }
+      .how-note { max-width: 540px; margin-top: 25px; }
+      .faq-layout { gap: 40px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 45px; }
+      .contact-copy > p { max-width: 650px; }
+      .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+      .footer-grid > :last-child { grid-column: 2 / -1; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(calc(100% - 34px), var(--container)); }
+      .section { padding: 76px 0; }
+      .announcement { padding-right: 16px; padding-left: 16px; font-size: .7rem; }
+      .header-inner { min-height: 68px; }
+      .header-action { display: none; }
+      .menu-toggle { display: block; }
+      .main-nav { position: absolute; top: 68px; right: 17px; left: 17px; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: var(--shadow-lg); }
+      .main-nav.is-open { display: flex; }
+      .main-nav a { padding: 13px 14px; border-radius: 8px; }
+      .main-nav a:hover { background: var(--mint); }
+      .main-nav a::after { display: none; }
+      .hero { padding: 70px 0 78px; }
+      h1 { font-size: clamp(2.75rem, 14vw, 4.4rem); }
+      .hero-lede { font-size: 1.04rem; }
+      .hero-art { min-height: 400px; transform: scale(.9); transform-origin: top center; margin-bottom: -35px; }
+      .trip-card { left: 2%; width: calc(100% - 32px); }
+      .floating-ticket { right: -1%; bottom: 11%; width: 220px; }
+      .hero-stamp { right: 6%; bottom: 1%; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .topic-card { min-height: 190px; }
+      .safety-card { grid-template-columns: 1fr; padding: 29px 25px; gap: 23px; }
+      .faq-layout { grid-template-columns: 1fr; gap: 30px; }
+      .faq-sidebar { position: static; }
+      .filter-list { display: grid; grid-template-columns: repeat(2, 1fr); }
+      .filter-button { padding: 10px; }
+      .form-grid { grid-template-columns: 1fr; gap: 15px; }
+      .form-field.full { grid-column: auto; }
+      .form-card { padding: 25px 20px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 35px 20px; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
+      .footer-grid > :last-child { grid-column: auto; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
+    }
+    @media (max-width: 430px) {
+      .brand-name strong { font-size: .95rem; }
+      .brand-name span { font-size: .57rem; }
+      .brand-mark { width: 36px; height: 36px; border-radius: 10px 10px 10px 3px; }
+      .search-row { flex-wrap: wrap; }
+      .search-row input { flex-basis: calc(100% - 48px); }
+      .search-row .button { width: 100%; }
+      .search-hint { margin-top: 4px; }
+      .hero-art { min-height: 350px; transform: scale(.76); width: 132%; margin-left: -16%; margin-bottom: -90px; }
+      .trip-card { padding: 22px; }
+      .trip-card h2 { font-size: 1.65rem; }
+      .progress-step { font-size: .58rem; }
+      .filter-list { grid-template-columns: 1fr 1fr; }
+      .filter-button { font-size: .78rem; }
+      .faq-item summary { padding: 18px; font-size: .9rem; }
+      .faq-answer { padding: 0 18px 19px; }
+    }
+  </style>
 </head>
 <body>
+  <!-- SVG symbols keep the page fast and avoid a dependency for icons. -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="m15.5 8.5-2.1 4.9-4.9 2.1 2.1-4.9z"></path></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"></path></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"></path></symbol>
+    <symbol id="icon-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16zM13.5 6.5l4 4"></path></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.8-3L3 11M3 5v6h6M4 13a8 8 0 0 0 14.8 3L21 13m0 6v-6h-6"></path></symbol>
+    <symbol id="icon-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18M7 15h3"></path></symbol>
+    <symbol id="icon-key" viewBox="0 0 24 24"><circle cx="8.5" cy="15.5" r="4.5"></circle><path d="m12 12 8-8m-2 2 2 2m-5 1 2 2"></path></symbol>
+    <symbol id="icon-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9a2.5 2.5 0 1 1 4.6 1.4c-.8 1.1-2.2 1.4-2.2 3M12 17.2v.1"></path></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2"></path></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"></path></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 20 6v5c0 5.1-3.4 8.4-8 10-4.6-1.6-8-4.9-8-10V6z"></path><path d="m8.5 12 2.2 2.2 4.8-5"></path></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-8 8"></path><path d="M19 13v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4"></path></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></symbol>
+    <symbol id="icon-headset" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"></path><path d="M4 14a2 2 0 0 1 2-2h1v6H6a2 2 0 0 1-2-2zM20 14a2 2 0 0 0-2-2h-1v6h1a2 2 0 0 0 2-2zM15 20h-3"></path></symbol>
+    <symbol id="icon-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M8 14.5A6 6 0 1 1 16 14c-.8.8-1 1.5-1 2H9c0-.7-.2-1.1-1-1.5z"></path></symbol>
+  </svg>
 
-<!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#home">
-            <i class="fas fa-hotel"></i> AGODA <span class="badge">OFFICIAL</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
-            </ul>
-        </div>
+  <div class="announcement">
+    Independent support guide · <a href="https://www.agoda.com/" target="_blank" rel="noopener noreferrer">Always verify on Agoda.com <span aria-hidden="true">↗</span></a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Agoda Support Guide home">
+        <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></span>
+        <span class="brand-name"><strong>agoda support</strong><span>help guide</span></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#topics">Popular topics</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Get help</a>
+      </nav>
+
+      <a class="button button-outline header-action" href="#contact">Find an answer <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">
+        <svg class="icon menu-icon" aria-hidden="true"><use href="#icon-menu"></use></svg>
+        <svg class="icon close-icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
     </div>
-</nav>
+  </header>
 
-<!-- Hero Section -->
-<section id="home" class="hero-section text-white">
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Booking help, without the runaround</p>
+          <h1 id="hero-title">Travel questions, <em>handled.</em></h1>
+          <p class="hero-lede">Clear, step-by-step guidance for reservations, cancellations, refunds, payments, check-in and account access. Start with a question or browse the topics below.</p>
+
+          <form class="search-box" id="help-search" role="search">
+            <div class="search-row">
+              <svg class="icon search-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
+              <label class="visually-hidden" for="search-input">Search booking help</label>
+              <input id="search-input" name="q" type="search" autocomplete="off" placeholder="Try “cancel my booking” or “refund”">
+              <button class="button" type="submit">Search</button>
+            </div>
+            <p class="search-hint">Popular: cancellation · payment · confirmation · password</p>
+            <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="hero-links" aria-label="Quick links">
+            <a href="https://www.agoda.com/" target="_blank" rel="noopener noreferrer">Open Agoda <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+            <a href="#safety">Stay safe online <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <span class="art-dot"></span>
+          <span class="art-dot-two"></span>
+          <div class="trip-card">
+            <div class="trip-card-top">
+              <span class="trip-card-label">Your next step</span>
+              <span class="trip-card-status">On track</span>
+            </div>
+            <h2>Open your booking</h2>
+            <p class="trip-card-copy">Most changes start from the reservation details in the Agoda app or website.</p>
+            <div class="progress">
+              <div class="progress-step done"><span class="step-dot">✓</span><span>Find</span></div>
+              <div class="progress-step done"><span class="step-dot">✓</span><span>Review</span></div>
+              <div class="progress-step"><span class="step-dot">3</span><span>Act</span></div>
+            </div>
+            <div class="card-note"><svg class="icon" aria-hidden="true"><use href="#icon-bulb"></use></svg><span>Keep your confirmation number nearby, but never share a password or one-time code.</span></div>
+          </div>
+          <div class="floating-ticket"><span class="ticket-icon"><svg class="icon" aria-hidden="true"><use href="#icon-headset"></use></svg></span><span><strong>Need a safe handoff?</strong><span>Use official Agoda channels for account-specific help.</span></span></div>
+          <div class="hero-stamp">clear<br>next<br>steps</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Guide benefits">
+      <div class="container">
+        <div class="benefit-grid">
+          <div class="benefit reveal"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg></span><span><strong>Easy to scan</strong><span>Plain-language answers for common booking moments.</span></span></div>
+          <div class="benefit reveal"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></span><span><strong>Clear next steps</strong><span>Know what to check before you contact support.</span></span></div>
+          <div class="benefit reveal"><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg></span><span><strong>Safety first</strong><span>Simple reminders to protect your account and payment details.</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section topics-section" id="topics" aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Start here</p>
+          <h2 id="topics-title">What can we help you untangle?</h2>
+          <p>Choose the closest match and get to the useful part faster.</p>
+        </div>
+
+        <div class="topics-grid" id="topics-grid">
+          <a class="topic-card reveal" href="#faq" data-search="change modify reservation dates guest name booking manage">
+            <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#icon-edit"></use></svg></span>
+            <h3>Manage a booking</h3>
+            <p>Change dates, guest details or other reservation information.</p>
+            <span class="topic-link">See booking answers <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></span>
+          </a>
+          <a class="topic-card reveal" href="#faq" data-search="cancel cancellation refund booking policy fee">
+            <span class="topic-icon coral"><svg class="icon" aria-hidden="true"><use href="#icon-refresh"></use></svg></span>
+            <h3>Cancel or get a refund</h3>
+            <p>Understand deadlines, fees and what happens after cancellation.</p>
+            <span class="topic-link">See cancellation answers <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></span>
+          </a>
+          <a class="topic-card reveal" href="#faq" data-search="payment charged card receipt invoice money">
+            <span class="topic-icon yellow"><svg class="icon" aria-hidden="true"><use href="#icon-card"></use></svg></span>
+            <h3>Payments &amp; receipts</h3>
+            <p>Find practical steps for charges, receipts and payment questions.</p>
+            <span class="topic-link">See payment answers <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></span>
+          </a>
+          <a class="topic-card reveal" href="#faq" data-search="check in hotel property arrival confirmation reservation">
+            <span class="topic-icon navy"><svg class="icon" aria-hidden="true"><use href="#icon-calendar"></use></svg></span>
+            <h3>Check-in &amp; property</h3>
+            <p>Prepare for arrival and know where to find property instructions.</p>
+            <span class="topic-link">See arrival answers <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></span>
+          </a>
+          <a class="topic-card reveal" href="#faq" data-search="account login password sign in email access verification code">
+            <span class="topic-icon"><svg class="icon" aria-hidden="true"><use href="#icon-key"></use></svg></span>
+            <h3>Account access</h3>
+            <p>Reset a password and get back into your account safely.</p>
+            <span class="topic-link">See account answers <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></span>
+          </a>
+          <a class="topic-card reveal" href="#contact" data-search="problem issue help support missing confirmation duplicate charge something wrong">
+            <span class="topic-icon coral"><svg class="icon" aria-hidden="true"><use href="#icon-help"></use></svg></span>
+            <h3>Something went wrong</h3>
+            <p>Organize the right details before reaching official support.</p>
+            <span class="topic-link">Prepare for support <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></span>
+          </a>
+          <p class="no-results" id="topic-empty">No topic matches that search yet. Try “booking”, “refund” or “password”.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container how-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A calmer way to start</p>
+          <h2 id="how-title">Begin with the booking, not the panic.</h2>
+          <p>These four steps help you solve simple changes yourself and make a support conversation much more efficient when you need one.</p>
+          <div class="how-note"><strong>Good to know</strong>Booking conditions vary by property and rate. The terms shown in your confirmation are the source of truth.</div>
+        </div>
+        <ol class="steps">
+          <li class="step reveal"><span class="step-number">01</span><div><h3>Locate your confirmation</h3><p>Search the email address used for the booking, check spam, or open Trips / Bookings in the official Agoda app or website.</p></div></li>
+          <li class="step reveal"><span class="step-number">02</span><div><h3>Read the conditions</h3><p>Look for cancellation deadlines, payment timing, change rules and any property-specific instructions before taking action.</p></div></li>
+          <li class="step reveal"><span class="step-number">03</span><div><h3>Choose the available action</h3><p>Use the change or cancellation option on the booking details page when it is available. Save a screenshot of the result.</p></div></li>
+          <li class="step reveal"><span class="step-number">04</span><div><h3>Use the official handoff</h3><p>If the option is missing or something does not look right, contact Agoda from the app or type Agoda.com into your browser yourself.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="safety-section" id="safety" aria-labelledby="safety-title">
+      <div class="container">
+        <div class="safety-card reveal">
+          <div>
+            <p class="eyebrow">Protect your trip</p>
+            <h2 id="safety-title">Your password is never a support ticket.</h2>
+            <p><strong>Never share your password, one-time code, full card number or verification link.</strong> This is an independent guide, not an Agoda account channel. For personal booking help, use the Agoda app or type <strong>agoda.com</strong> into your browser yourself.</p>
+          </div>
+          <a class="button button-light" href="https://www.agoda.com/" target="_blank" rel="noopener noreferrer">Go to Agoda <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Popular questions</p>
+          <h2 id="faq-title">Answers for the moments that matter.</h2>
+          <p>Short answers first, with a safer next step when the situation needs official support.</p>
+        </div>
+
+        <div class="faq-layout">
+          <aside class="faq-sidebar reveal" aria-label="Filter frequently asked questions">
+            <p>Browse by topic</p>
+            <div class="filter-list" role="group" aria-label="FAQ topics">
+              <button class="filter-button" type="button" aria-pressed="true" data-filter="all">All questions <span class="filter-count">8</span></button>
+              <button class="filter-button" type="button" aria-pressed="false" data-filter="booking">Bookings <span class="filter-count">3</span></button>
+              <button class="filter-button" type="button" aria-pressed="false" data-filter="payments">Payments <span class="filter-count">2</span></button>
+              <button class="filter-button" type="button" aria-pressed="false" data-filter="account">Account <span class="filter-count">1</span></button>
+              <button class="filter-button" type="button" aria-pressed="false" data-filter="safety">Safety <span class="filter-count">2</span></button>
+            </div>
+          </aside>
+
+          <div class="faq-list" id="faq-list">
+            <details class="faq-item reveal" data-category="booking" data-search="find booking confirmation email trips bookings missing spam">
+              <summary>Where can I find my Agoda booking confirmation?</summary>
+              <div class="faq-answer"><p>Look for the confirmation email sent to the address used during booking, or open <strong>Trips</strong> / <strong>Bookings</strong> in the Agoda app or website. Check your spam or promotions folder if it is missing.</p><p>If you still cannot find it, use an official Agoda help channel and have the traveler name, property and approximate booking date ready.</p></div>
+            </details>
+            <details class="faq-item reveal" data-category="booking" data-search="change modify dates guest name booking reservation">
+              <summary>Can I change the dates or guest name on my booking?</summary>
+              <div class="faq-answer"><p>Open the booking in Agoda and review the available change options. What can be changed depends on the property, rate and booking conditions.</p><p>If no option is shown, contact official Agoda support from the app or website. Do not send account credentials to anyone offering to change it for you.</p></div>
+            </details>
+            <details class="faq-item reveal" data-category="booking" data-search="cancel cancellation booking policy deadline fee refund">
+              <summary>How do I cancel an Agoda booking?</summary>
+              <div class="faq-answer"><p>Open the booking details and select the cancellation option if it is available. Review the cancellation deadline, fee and refund amount before confirming.</p><p>The terms in your confirmation are the terms that apply. If the button is missing or the displayed terms look wrong, use official support before making another booking.</p></div>
+            </details>
+            <details class="faq-item reveal" data-category="payments" data-search="refund arrive timing money cancellation card bank">
+              <summary>When will my Agoda refund arrive?</summary>
+              <div class="faq-answer"><p>Refund timing depends on the booking terms, payment method and bank. Check the cancellation confirmation for the expected amount and any stated timing.</p><p>If the expected window has passed, contact official Agoda support first, then your payment provider if needed.</p></div>
+            </details>
+            <details class="faq-item reveal" data-category="payments" data-search="charged payment receipt invoice duplicate charge no confirmation">
+              <summary>What if I was charged but did not receive a confirmation?</summary>
+              <div class="faq-answer"><p>Check your email and Agoda account before trying to book again. A second attempt can create a duplicate authorization. Note the amount, date and payment method, but do not share your full card number.</p><p>Use official Agoda support for account-specific investigation. Your bank can explain whether a charge is pending or completed.</p></div>
+            </details>
+            <details class="faq-item reveal" data-category="booking" data-search="check in hotel property arrival instructions reservation">
+              <summary>Where can I find check-in and property instructions?</summary>
+              <div class="faq-answer"><p>Check the confirmation and booking details for arrival time, address, contact instructions and any special check-in steps. Some properties require advance arrival details.</p><p>For an urgent arrival issue, contact the property using the details in your official booking and use Agoda support if you cannot reach them.</p></div>
+            </details>
+            <details class="faq-item reveal" data-category="account" data-search="sign in login password reset account email verification code">
+              <summary>What should I do if I cannot sign in to Agoda?</summary>
+              <div class="faq-answer"><p>Use the password reset option on Agoda’s official website or app and follow the email instructions. Make sure you are using the same email or sign-in method used for the booking.</p><p>Never share a password, one-time code or verification link with anyone, including someone claiming to be support.</p></div>
+            </details>
+            <details class="faq-item reveal" data-category="safety" data-search="contact support details booking reference safe information password otp card">
+              <summary>What information is safe to include when I contact support?</summary>
+              <div class="faq-answer"><p>Share only what is needed to locate the booking, such as your booking reference, traveler name, property and dates. Redact screenshots before sending them.</p><p>Never include a password, one-time passcode, full card number, CVV, identity document or verification link.</p></div>
+            </details>
+            <div class="faq-empty" id="faq-empty">No FAQ matches that search. Try a broader term like “booking”, “refund” or “account”.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Make your handoff count</p>
+          <h2 id="contact-title">Still need a hand?</h2>
+          <p>Use the checklist below before contacting official Agoda support. It helps you get a useful answer without oversharing personal information.</p>
+          <ul class="contact-list">
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg><span><strong>Have the basics ready</strong><span>Booking reference, traveler name, property and stay dates.</span></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg><span><strong>Keep sensitive details private</strong><span>No passwords, one-time codes or full card details.</span></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg><span><strong>Use the official route</strong><span>Open the Agoda app or type agoda.com yourself.</span></span></li>
+          </ul>
+        </div>
+
+        <div class="form-card reveal">
+          <h3>Prepare a support request</h3>
+          <p class="form-intro">This form goes to the site owner, not Agoda, and cannot change a reservation. Please do not include passwords, codes or payment credentials.</p>
+          <form name="support-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/" aria-describedby="form-note">
+            <input type="hidden" name="form-name" value="support-request">
+            <p class="honeypot"><label>Do not fill this out if you are human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="full-name">Your name <span aria-hidden="true">*</span></label>
+                <input id="full-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email address <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-field">
+                <label for="booking-reference">Booking reference</label>
+                <input id="booking-reference" name="booking-reference" type="text" autocomplete="off" placeholder="If applicable">
+              </div>
+              <div class="form-field">
+                <label for="topic">Topic <span aria-hidden="true">*</span></label>
+                <select id="topic" name="topic" required>
+                  <option value="">Select a topic</option>
+                  <option>Manage a booking</option>
+                  <option>Cancellation or refund</option>
+                  <option>Payment or receipt</option>
+                  <option>Check-in or property</option>
+                  <option>Account access</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="message">What happened? <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" placeholder="Share the key details, but leave out passwords, one-time codes and full card details." required></textarea>
+              </div>
+            </div>
+            <label class="form-consent"><input type="checkbox" name="safe-to-share" required><span>I confirm that I have not included a password, one-time code, full card number or CVV. <a href="#safety">Why this matters</a>.</span></label>
+            <button class="button" type="submit">Submit support request <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg></button>
+            <p class="form-note" id="form-note">For personal booking help, use the official Agoda app or website. This guide is independent and cannot access your reservation.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     <div class="container">
-        <div class="hero-content">
-            <div class="official-badge">
-                <i class="fas fa-check-circle"></i> OFFICIAL AGODA SUPPORT
-            </div>
-            <h1 class="display-4 fw-bold mb-4">24/7 Customer Support</h1>
-            <p class="lead mb-5">We're here to help you with all your booking questions and concerns. Get instant assistance from our official Agoda support team.</p>
-            <div class="d-flex gap-3 flex-wrap">
-                <a href="#contact" class="btn btn-contact btn-lg">
-                    <i class="fas fa-envelope"></i> Send Message
-                </a>
-                <a href="https://wa.me/447853169761?text=Hello%20Agoda%20Official%20Support" target="_blank" class="btn btn-success btn-lg">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="tel:+447853169761" class="btn btn-info btn-lg">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-            </div>
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#home" aria-label="Agoda Support Guide home">
+            <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#icon-compass"></use></svg></span>
+            <span class="brand-name"><strong>agoda support</strong><span>help guide</span></span>
+          </a>
+          <p class="footer-intro">A clearer starting point for common booking questions, with safety reminders built in.</p>
         </div>
+        <div>
+          <p class="footer-heading">Explore</p>
+          <ul class="footer-links">
+            <li><a href="#topics">Popular topics</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#contact">Get help</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Keep safe</p>
+          <ul class="footer-links">
+            <li><a href="#safety">Safety reminders</a></li>
+            <li><a href="https://www.agoda.com/" target="_blank" rel="noopener noreferrer">Official Agoda site ↗</a></li>
+            <li><a href="#contact">Support checklist</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Good to know</p>
+          <ul class="footer-links">
+            <li><a href="#faq">Booking conditions vary</a></li>
+            <li><a href="#safety">Never share one-time codes</a></li>
+            <li><a href="#home">Back to top ↑</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-disclaimer"><strong>Important:</strong> Agoda Support Guide is an independent informational website and is not affiliated with, operated by or endorsed by Agoda. We cannot view, change or refund bookings. For account-specific help, use the official Agoda app or type agoda.com into your browser yourself.</div>
+      <div class="footer-bottom"><p>© <span id="current-year">2026</span> Agoda Support Guide. Built for clearer next steps.</p><p><a href="#safety">Privacy &amp; safety by design</a></p></div>
     </div>
-</section>
+  </footer>
 
-<!-- Quick Stats -->
-<section class="stats-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 mb-4">
-                <div class="stat-box">
-                    <h3>24/7</h3>
-                    <p>Round the Clock Support</p>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="stat-box">
-                    <h3>100K+</h3>
-                    <p>Customers Helped</p>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="stat-box">
-                    <h3>2hr</h3>
-                    <p>Avg Response Time</p>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="stat-box">
-                    <h3>99%</h3>
-                    <p>Satisfaction Rate</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+  <noscript><div style="padding:16px;background:#fff7d9;color:#102c43;text-align:center;font:700 14px/1.5 system-ui,sans-serif">JavaScript is off. You can still browse every answer below; use the official Agoda app or website for account-specific help.</div></noscript>
 
-<!-- FAQ Section -->
-<section id="faq" class="faq-section">
-    <div class="container">
-        <h2>Frequently Asked Questions</h2>
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="accordion" id="faqAccordion">
-                    
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                <i class="fas fa-edit me-2"></i> How do I modify my reservation?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                You can modify your reservation through your Agoda account. Go to "My Bookings," select the reservation you wish to modify, and follow the instructions. For major changes or if you face any issues, our support team is ready to assist you.
-                            </div>
-                        </div>
-                    </div>
+  <script>
+    (function () {
+      document.documentElement.classList.add('js');
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                <i class="fas fa-ban me-2"></i> What is your cancellation policy?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Our cancellation policy varies by property and booking type. Most reservations allow free cancellation up to a certain date. Check your booking confirmation or property details for specific cancellation terms. Contact us if you need clarification.
-                            </div>
-                        </div>
-                    </div>
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mainNav = document.querySelector('.main-nav');
+      const body = document.body;
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                <i class="fas fa-credit-card me-2"></i> How long does payment processing take?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Payment processing typically takes 1-3 business days. You'll receive a confirmation email with your booking details and receipt once your payment is successfully processed.
-                            </div>
-                        </div>
-                    </div>
+      function closeMenu() {
+        if (!mainNav || !menuToggle) return;
+        mainNav.classList.remove('is-open');
+        menuToggle.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        body.classList.remove('menu-open');
+      }
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                <i class="fas fa-key me-2"></i> How do I reset my password?
-                            </button>
-                        </h2>
-                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Click "Forgot Password" on the login page and follow the instructions sent to your registered email address. You'll receive a secure link to reset your password within minutes.
-                            </div>
-                        </div>
-                    </div>
+      menuToggle && menuToggle.addEventListener('click', function () {
+        const isOpen = mainNav.classList.toggle('is-open');
+        menuToggle.classList.toggle('is-open', isOpen);
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        body.classList.toggle('menu-open', isOpen);
+      });
+      document.querySelectorAll('.main-nav a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+      document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeMenu(); });
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                                <i class="fas fa-undo me-2"></i> Can I get a refund?
-                            </button>
-                        </h2>
-                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Refunds depend on your property's cancellation policy and your booking terms. Contact our support team with your booking reference number for detailed information about your refund eligibility.
-                            </div>
-                        </div>
-                    </div>
+      // Make the search useful without a server: it filters both topic cards and FAQ answers.
+      const searchForm = document.getElementById('help-search');
+      const searchInput = document.getElementById('search-input');
+      const searchStatus = document.getElementById('search-status');
+      const topicCards = Array.from(document.querySelectorAll('.topic-card'));
+      const topicEmpty = document.getElementById('topic-empty');
+      const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+      const faqEmpty = document.getElementById('faq-empty');
+      const faqSection = document.getElementById('faq');
+      const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
+      let activeFilter = 'all';
 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+      const stopWords = new Set(['a', 'an', 'and', 'are', 'can', 'do', 'for', 'how', 'i', 'in', 'is', 'it', 'me', 'my', 'of', 'on', 'or', 'the', 'to', 'what', 'where', 'with', 'you', 'your']);
+      function normalize(value) { return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim(); }
+      function matches(text, query) {
+        if (!query) return true;
+        const words = query.split(/\s+/).filter(function (word) { return word.length > 1 && !stopWords.has(word); });
+        return words.length === 0 || words.every(function (word) { return text.indexOf(word) !== -1; });
+      }
+      function applySearch(query, shouldScroll) {
+        const normalized = normalize(query);
+        let topicMatches = 0;
+        topicCards.forEach(function (card) {
+          const match = matches(normalize(card.dataset.search + ' ' + card.textContent), normalized);
+          card.hidden = !match;
+          if (match) topicMatches += 1;
+        });
+        topicEmpty.classList.toggle('is-visible', Boolean(normalized) && topicMatches === 0);
 
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <h2>Contact Our Support Team</h2>
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <!-- NETLIFY FORMS FOR CLOUDFLARE PAGES -->
-                <form name="agoda-official-support" method="POST" netlify class="contact-form">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required>
-                    </div>
+        let faqMatches = 0;
+        faqItems.forEach(function (item) {
+          const categoryMatch = activeFilter === 'all' || item.dataset.category === activeFilter;
+          const searchMatch = matches(normalize(item.dataset.search + ' ' + item.textContent), normalized);
+          const match = categoryMatch && searchMatch;
+          item.hidden = !match;
+          if (match) faqMatches += 1;
+          if (normalized && match) item.open = true;
+        });
+        faqEmpty.classList.toggle('is-visible', faqMatches === 0);
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+44 7853 169761">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="booking-ref" class="form-label">Booking Reference (if applicable)</label>
-                        <input type="text" class="form-control" id="booking-ref" name="booking-reference" placeholder="e.g., AGD1234567">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
-                        <select class="form-select" id="category" name="category" required>
-                            <option value="">Select a category</option>
-                            <option value="Booking">Booking Issue</option>
-                            <option value="Payment">Payment Issue</option>
-                            <option value="Cancellation">Cancellation/Refund</option>
-                            <option value="Technical">Technical Issue</option>
-                            <option value="Account">Account Issues</option>
-                            <option value="General">General Inquiry</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Brief description of your issue" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
-                        <textarea class="form-control" id="message" name="message" rows="6" placeholder="Please describe your issue in detail..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-submit btn-lg w-100">
-                        <i class="fas fa-paper-plane"></i> Submit Support Request
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Support Methods Section -->
-<section id="support" class="support-section">
-    <div class="container">
-        <h2>How to Reach Us</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="support-box">
-                    <i class="fas fa-envelope text-primary"></i>
-                    <h4>Email Support</h4>
-                    <p class="lead">agodahelpcare@outlook.com</p>
-                    <a href="mailto:agodahelpcare@outlook.com" class="btn btn-outline-primary">Send Email</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="support-box">
-                    <i class="fab fa-whatsapp text-success"></i>
-                    <h4>WhatsApp Chat</h4>
-                    <p class="lead">+44 7853 169761</p>
-                    <a href="https://wa.me/447853169761?text=Hello%20Agoda%20Official%20Support" target="_blank" class="btn btn-outline-success">Chat Now</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="support-box">
-                    <i class="fas fa-phone text-info"></i>
-                    <h4>Phone Support</h4>
-                    <p class="lead">+44 7853 169761</p>
-                    <a href="tel:+447853169761" class="btn btn-outline-info">Call Us</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="text-white">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-md-12 text-center">
-                <h5 class="mb-3">
-                    <i class="fas fa-hotel"></i> AGODA OFFICIAL SUPPORT
-                </h5>
-                <p class="mb-0">Supporting Agoda customers worldwide through official Facebook community groups</p>
-            </div>
-        </div>
-        
-        <div class="social-links">
-            <a href="mailto:agodahelpcare@outlook.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://wa.me/447853169761" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="tel:+447853169761" title="Call"><i class="fas fa-phone"></i></a>
-        </div>
-
-        <div class="footer-text">
-            <p>&copy; 2024 Agoda Customer Support. Official Support Channel.</p>
-            <p style="font-size: 0.9rem; opacity: 0.8;">Available 24/7 | Average Response Time: 2 Hours</p>
-        </div>
-    </div>
-</footer>
-
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-// ==================== SMOOTH SCROLLING ==================== 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        if (normalized) {
+          searchStatus.textContent = (topicMatches + faqMatches) + ' helpful result' + ((topicMatches + faqMatches) === 1 ? '' : 's') + ' found.';
+        } else {
+          searchStatus.textContent = '';
         }
-    });
-});
-
-// ==================== NAVBAR HIGHLIGHTING ==================== 
-window.addEventListener('scroll', function() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    let current = '';
-
-    const sections = ['home', 'faq', 'contact', 'support'];
-    sections.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            const sectionTop = section.offsetTop;
-            if (scrollY >= sectionTop - 200) {
-                current = sectionId;
-            }
+        if (shouldScroll) {
+          (topicMatches ? document.getElementById('topics') : faqSection).scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    });
+      }
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-        }
-    });
-});
+      searchForm && searchForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        applySearch(searchInput.value, true);
+      });
+      searchInput && searchInput.addEventListener('input', function () {
+        if (searchInput.value.trim() === '') applySearch('', false);
+      });
+      topicCards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          const firstTerm = card.dataset.search.split(' ')[0];
+          if (searchInput) { searchInput.value = firstTerm; applySearch(firstTerm, false); }
+        });
+      });
 
-// ==================== ANIMATION ON SCROLL ==================== 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+      filterButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          activeFilter = button.dataset.filter;
+          filterButtons.forEach(function (item) {
+            const selected = item === button;
+            item.setAttribute('aria-pressed', String(selected));
+            item.classList.toggle('is-selected', selected);
+          });
+          applySearch(searchInput ? searchInput.value : '', false);
+        });
+      });
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+      const queryFromUrl = new URLSearchParams(window.location.search).get('q');
+      if (queryFromUrl && searchInput) { searchInput.value = queryFromUrl; applySearch(queryFromUrl, false); }
 
-document.querySelectorAll('.stat-box, .support-box, .accordion-item').forEach(el => {
-    el.style.opacity = '0';
-    observer.observe(el);
-});
+      const currentYear = document.getElementById('current-year');
+      if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
-// ==================== MOBILE MENU CLOSE ==================== 
-document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-    link.addEventListener('click', function() {
-        const navbar = document.querySelector('.navbar-collapse');
-        const toggler = document.querySelector('.navbar-toggler');
-        if (navbar.classList.contains('show')) {
-            toggler.click();
-        }
-    });
-});
-
-console.log('✓ Agoda Official Support Website Loaded');
-</script>
-
+      // Reveal content as it enters the viewport, while leaving the full page readable without JS.
+      const revealItems = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(function (entries, instance) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('is-visible'); instance.unobserve(entry.target); }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -35px' });
+        revealItems.forEach(function (item) { observer.observe(item); });
+      } else {
+        revealItems.forEach(function (item) { item.classList.add('is-visible'); });
+      }
+    }());
+  </script>
 </body>
 </html>
